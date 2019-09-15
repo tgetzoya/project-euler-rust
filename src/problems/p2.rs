@@ -10,7 +10,7 @@
  * Answer: 4613732
  */
 
-pub fn run() {
+pub fn run() -> u32 {
     let mut fib: [u32; 2] = [1, 1];
     let mut sum: u32 = 0;
 
@@ -23,5 +23,5 @@ pub fn run() {
         fib[0] = fib[1] - fib[0];
     }
 
-    println!("Problem 002: {}", sum);
+    return sum;
 }

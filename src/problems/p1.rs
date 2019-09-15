@@ -7,7 +7,7 @@
  * Correct Answer: 233168
  */
 
-pub fn run() {
+pub fn run() -> u32 {
     let mut sum: u32 = 0;
 
     for n in 1..1000 {
@@ -16,5 +16,5 @@ pub fn run() {
         }
     }
 
-    println!("Problem 001: {}", sum);
+    return sum;
 }
