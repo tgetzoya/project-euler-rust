@@ -8,7 +8,7 @@
 
 use crate::problems::util::{number_to_digits};
 
-pub fn run() -> u32 {
+pub fn run() -> u64 {
     let mut x: u32 = 999;
     let mut y: u32;
     let mut z: u32;
@@ -41,5 +41,5 @@ pub fn run() -> u32 {
         x -= 1;
     }
 
-    return largest;
+    return largest as u64;
 }

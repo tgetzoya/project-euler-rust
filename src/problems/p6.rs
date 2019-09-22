@@ -12,9 +12,9 @@
  * Answer: 25164150
  */
 
-pub fn run() -> u32 {
-    let mut sum_of_sqaures: u32 = 0;
-    let mut square_of_sums: u32 = 0;
+pub fn run() -> u64 {
+    let mut sum_of_sqaures: u64 = 0;
+    let mut square_of_sums: u64 = 0;
 
     for idx in 1..=100 {
         sum_of_sqaures += idx * idx;

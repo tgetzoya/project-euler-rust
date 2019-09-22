@@ -8,15 +8,15 @@
 
 use crate::problems::util::is_prime;
 
-pub fn run() -> u32 {
+pub fn run() -> u64 {
     let num: u64 = 600851475143;
     let half: u64 = 300425737571;
-    let mut largest: u32 = 0;
+    let mut largest: u64 = 0;
 
     for idx in 2..half {
         if num % idx == 0 {
             if is_prime(num / idx) {
-                largest = (num / idx) as u32;
+                largest = num / idx;
                 break;
             }
         }

@@ -6,7 +6,7 @@
  * Answer: 232792560
  */
 
-pub fn run() -> u32 {
+pub fn run() -> u64 {
     /* Assuming at least twice as many digits as 2520 (4 digits to 8, guessing starting at 9) */
     let mut smallest: u32 = 100_000_000;
     let mut is_divisible: bool;
@@ -22,7 +22,7 @@ pub fn run() -> u32 {
         }
 
         if is_divisible {
-            return smallest;
+            return smallest as u64;
         }
 
         /* It'll have to be a multiple of 20, right? */
