@@ -8,7 +8,7 @@
  */
 
 pub fn run() -> u64 {
-    let mut sum: u32 = 0;
+    let mut sum: u64 = 0;
 
     for n in 1..1000 {
         if (n % 5 == 0) || (n % 3 == 0) {
@@ -16,5 +16,5 @@ pub fn run() -> u64 {
         }
     }
 
-    return sum as u64;
+    return sum;
 }

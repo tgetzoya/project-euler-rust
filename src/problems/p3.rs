@@ -7,20 +7,22 @@
  */
 
 use crate::problems::util::is_prime;
+use crate::problems::util::factors;
+use std::iter::FromIterator;
 
 pub fn run() -> u64 {
-    let num: u64 = 600851475143;
-    let half: u64 = 300425737571;
     let mut largest: u64 = 0;
 
-    for idx in 2..half {
-        if num % idx == 0 {
-            if is_prime(num / idx) {
-                largest = num / idx;
-                break;
-            }
+    let mut bob = Vec::from_iter(factors(600851475143, false));
+    bob.sort();
+    bob.reverse();
+
+    for factor in bob {
+        if is_prime(factor as u64) {
+            largest =  factor as u64;
+            break;
         }
     }
 
-    return largest;
+    return largest as u64;
 }

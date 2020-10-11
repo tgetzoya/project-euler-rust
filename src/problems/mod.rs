@@ -7,6 +7,8 @@ mod p6;
 mod p7;
 mod p8;
 mod p9;
+mod p10;
+mod p11;
 mod util;
 
 pub fn run(problem_id: u16) -> u64 {
@@ -22,6 +24,8 @@ pub fn run(problem_id: u16) -> u64 {
         7 => val = p7::run(),
         8 => val = p8::run(),
         9 => val = p9::run(),
+        10 => val = p10::run(),
+        11 => val = p11::run(),
         _ => println!("Unknown Problem Id: {}", problem_id)
     }
 

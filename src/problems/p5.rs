@@ -7,27 +7,21 @@
  */
 
 pub fn run() -> u64 {
-    /* Assuming at least twice as many digits as 2520 (4 digits to 8, guessing starting at 9) */
-    let mut smallest: u32 = 100_000_000;
-    let mut is_divisible: bool;
+    /* Start with a sufficient big number */
+    let mut idx = 20 * 19 * 18 * 17 * 15;
 
-    while smallest < std::u32::MAX {
-        is_divisible = true;
+    'main: loop {
+        /* All multiples of 20 end with 0 and first significant digit is an even number. */
+        idx += 1;
 
-        for idx in 2..20 {
-            if smallest % idx != 0 {
-                is_divisible = false;
-                break;
+        let num = 20 * idx;
+
+        for idx in (2..20).rev() {
+            if num % idx > 0 {
+                continue 'main;
             }
         }
 
-        if is_divisible {
-            return smallest as u64;
-        }
-
-        /* It'll have to be a multiple of 20, right? */
-        smallest += 20;
+        return num;
     }
-
-    return 0;
 }

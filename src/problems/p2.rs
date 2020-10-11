@@ -11,8 +11,8 @@
  */
 
 pub fn run() -> u64 {
-    let mut fib: [u32; 2] = [1, 1];
-    let mut sum: u32 = 0;
+    let mut fib: [u64; 2] = [1, 1];
+    let mut sum: u64 = 0;
 
     while fib[1] < 4_000_000 {
         if fib[1] % 2 == 0 {
@@ -23,5 +23,5 @@ pub fn run() -> u64 {
         fib[0] = fib[1] - fib[0];
     }
 
-    return sum as u64;
+    return sum;
 }

@@ -2,26 +2,7 @@
  * Utility functions used across more than one problem
  */
 
-//use std::collections::BTreeSet;
-//
-//pub fn get_factors(number: u64, include_self: bool) -> BTreeSet<u64> {
-//    let mut factors: BTreeSet<u64> = BTreeSet::new();
-//    let half: u64 = number / 2;
-//
-//    if include_self {
-//        factors.insert(1);
-//        factors.insert(number);
-//    }
-//
-//    for idx in 2..half {
-//        if number % idx == 0 {
-//            factors.insert(idx);
-//            factors.insert(number / idx);
-//        }
-//    }
-//
-//    return factors;
-//}
+use std::collections::HashSet;
 
 pub fn is_prime(number: u64) -> bool {
     if number == 0 || number == 1 {
@@ -63,4 +44,38 @@ pub fn number_to_digits(num: u128) -> Vec<u8> {
     digits.push(val as u8);
 
     return digits;
+}
+
+pub fn factors(num: u128, include_self: bool) -> HashSet<u128> {
+    let mut factors: HashSet<u128> = HashSet::new();
+
+    if include_self {
+        factors.insert(1);
+        factors.insert(num);
+    }
+
+    let mut idx = 2;
+
+    while idx * idx <= num {
+        if !factors.contains(&idx) && num % idx == 0 {
+            factors.insert(idx);
+            factors.insert(num / idx);
+        }
+
+        idx += 1;
+    }
+
+    return factors;
+}
+
+pub fn is_palindrome(num: u128) -> bool {
+    let digits = number_to_digits ( num as u128);
+
+    for idx in 0..(digits.len() / 2) {
+        if digits[idx] != digits[digits.len() - (1 + idx)] {
+            return false;
+        }
+    }
+
+    return true;
 }

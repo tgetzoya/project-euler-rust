@@ -8,16 +8,18 @@
 use crate::problems::util::is_prime;
 
 pub fn run() -> u64 {
-    let mut prime_count: u64 = 0;
-    let mut idx: u64 = 2;
+    let mut count = 6; //Defined in the question
+    let mut idx = 13;
 
-    while prime_count != 10_001 {
+    loop {
+        idx += 2;
+
         if is_prime(idx) {
-            prime_count += 1;
+            count += 1;
+
+            if count == 10_001 {
+                return idx;
+            }
         }
-
-        idx += 1;
     }
-
-    return idx - 1;
 }
