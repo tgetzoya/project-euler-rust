@@ -3,7 +3,8 @@ use crate::utils::primes::is_prime;
 
 pub fn problem3() -> u32 {
     let largest_prime = utils::factors::get_factors(600851475143)
-        .into_iter().filter(|&x| is_prime(x))
+        .into_iter()
+        .filter(|&x| is_prime(x))
         .last()
         .unwrap();
 

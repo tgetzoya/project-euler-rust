@@ -6,9 +6,10 @@ mod utils;
 fn main() {
     let start = Instant::now();
 
-    println!("{}", problems::problem1::problem1());
-    println!("{}", problems::problem2::problem2());
-    println!("{}", problems::problem3::problem3());
+    println!("Problem 1: {}", problems::problem1::problem1());
+    println!("Problem 2: {}", problems::problem2::problem2());
+    println!("Problem 3: {}", problems::problem3::problem3());
+    println!("Problem 4: {}", problems::problem4::problem4());
 
     println!("Total run time: {:?}", start.elapsed());
 }
