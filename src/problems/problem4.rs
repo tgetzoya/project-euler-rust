@@ -26,6 +26,6 @@ pub fn problem4() -> u32 {
         }
     }
 
-    assert_eq!(value,906609);
+    assert_eq!(value, 906609);
     return value as u32;
 }
