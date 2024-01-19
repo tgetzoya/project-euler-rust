@@ -1,4 +1,7 @@
-pub fn problem2() -> u32 {
+use std::time::{Duration, Instant};
+
+pub fn problem2() -> (u128, Duration)  {
+    let start = Instant::now();
     let mut x = 1;
     let mut y = 1;
     let mut sum = 0;
@@ -13,6 +16,5 @@ pub fn problem2() -> u32 {
     }
 
     assert_eq!(sum, 4613732);
-
-    return sum;
+    return (sum, start.elapsed());
 }

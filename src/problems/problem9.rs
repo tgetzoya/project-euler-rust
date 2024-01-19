@@ -1,4 +1,8 @@
-pub fn problem9() -> u64 {
+use std::time::{Duration, Instant};
+
+pub fn problem9() -> (u128, Duration) {
+    let start = Instant::now();
+
     let mut value = 31875000;
 
     for a in 1..999 {
@@ -13,5 +17,5 @@ pub fn problem9() -> u64 {
     }
 
     assert_eq!(value, 31875000);
-    return value;
+    return (value, start.elapsed());
 }

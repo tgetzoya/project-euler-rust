@@ -1,5 +1,9 @@
-pub fn problem7() -> u32 {
-    let mut value = 0;
+use std::time::{Duration, Instant};
+
+pub fn problem7() -> (u128, Duration) {
+    let start = Instant::now();
+
+    let mut value: u128 = 0;
 
     /* 2 is a prime number, and it's already accounted for. */
     let mut step = 1;
@@ -13,12 +17,12 @@ pub fn problem7() -> u32 {
             primes.push(idx);
 
             if step == 10_001 {
-                value = idx;
+                value = idx as u128;
                 break;
             }
         }
     }
 
     assert_eq!(value, 104743);
-    return value;
+    return (value, start.elapsed());
 }

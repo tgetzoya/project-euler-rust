@@ -1,6 +1,9 @@
+use std::time::{Duration, Instant};
 use crate::utils;
 
-pub fn problem10() -> u64 {
+pub fn problem10() -> (u128, Duration) {
+    let start = Instant::now();
+
     let mut value = 2;
 
 
@@ -9,5 +12,5 @@ pub fn problem10() -> u64 {
     }
 
     assert_eq!(value, 142913828922);
-    return value;
+    return (value, start.elapsed());
 }
