@@ -5,10 +5,21 @@ pub fn is_prime<T: Into<u128>>(number: T) -> bool {
         return false;
     }
 
-    for idx in 2..(num as f64).sqrt() as u128 {
-        if num % idx == 0 {
+    if num == 2 {
+        return true;
+    }
+
+    if num % 2 == 0 {
+        return false;
+    }
+
+    let mut factor = 3;
+    while factor*factor <= num {
+        if num % factor == 0 {
             return false;
         }
+
+        factor += 2;
     }
 
     return true;

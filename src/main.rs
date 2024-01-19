@@ -15,6 +15,7 @@ fn main() {
     println!("Problem 7: {}", problems::problem7::problem7());
     println!("Problem 8: {}", problems::problem8::problem8());
     println!("Problem 9: {}", problems::problem9::problem9());
+    println!("Problem 10: {}", problems::problem10::problem10());
 
     println!("Total run time: {:?}", start.elapsed());
 }
