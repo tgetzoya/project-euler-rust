@@ -9,7 +9,7 @@ pub fn problem4() -> (u128, Duration) {
     let end_value = 100*100;
 
     'main_loop: for idx in (end_value..start_value).rev().filter(|&x| utils::numbers::is_palindrome(x)) {
-        let factors = utils::factors::get_factors(idx)
+        let factors = utils::factors::get_factors(idx, false)
             .into_iter()
             .filter(|&x| x > 99 && x < 1000)
             .collect::<Vec<u128>>();
