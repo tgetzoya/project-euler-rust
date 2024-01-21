@@ -6,7 +6,9 @@ mod utils;
 fn main() {
     let start = Instant::now();
 
-    let mut result = problems::problem1::problem1();
+    let mut result;
+
+    result = problems::problem1::problem1();
     println!("Problem 1: {:15}, {:?}", result.0, result.1);
 
     result = problems::problem2::problem2();
@@ -35,6 +37,9 @@ fn main() {
 
     result = problems::problem10::problem10();
     println!("Problem 10: {:15}, {:?}", result.0, result.1);
+
+    result = problems::problem11::problem11();
+    println!("Problem 11: {:15}, {:?}", result.0, result.1);
 
     println!("Total run time: {:?}", start.elapsed());
 }

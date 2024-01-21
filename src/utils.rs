@@ -1,3 +1,4 @@
 pub mod factors;
-pub mod primes;
+pub mod matrix;
 pub mod numbers;
+pub mod primes;
