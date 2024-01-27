@@ -53,5 +53,8 @@ fn main() {
     result = problems::problem15::problem15();
     println!("Problem 15: {:15}, {:?}", result.0, result.1);
 
+    result = problems::problem16::problem16();
+    println!("Problem 16: {:15}, {:?}", result.0, result.1);
+
     println!("Total run time: {:?}", start.elapsed());
 }
