@@ -6,7 +6,7 @@ pub fn problem11() -> (u128, Duration) {
 
     let mut value = u32::MIN;
 
-    let matrix = setup_matrix();
+    let matrix: Matrix<u32> = setup_matrix();
 
     largest_down(&matrix, &mut value);
     largest_left(&matrix, &mut value);
@@ -18,8 +18,8 @@ pub fn problem11() -> (u128, Duration) {
     return (value as u128, start.elapsed());
 }
 
-fn setup_matrix() -> Matrix {
-    let mut matrix: Matrix = Matrix::new(20,20);
+fn setup_matrix() -> Matrix<u32> {
+    let mut matrix: Matrix<u32> = Matrix::new(20,20, 0);
 
     matrix.set_row(00, &[08, 02, 22, 97, 38, 15, 00, 40, 00, 75, 04, 05, 07, 78, 52, 12, 50, 77, 91, 08]);
     matrix.set_row(01, &[49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 04, 56, 62, 00]);
@@ -45,7 +45,7 @@ fn setup_matrix() -> Matrix {
     matrix
 }
 
-fn largest_down(matrix: &Matrix, largest: &mut u32) {
+fn largest_down(matrix: &Matrix<u32>, largest: &mut u32) {
     let mut segment: u32;
 
     for x in 0..17 {
@@ -62,7 +62,7 @@ fn largest_down(matrix: &Matrix, largest: &mut u32) {
     }
 }
 
-fn largest_left(matrix: &Matrix, largest: &mut u32) {
+fn largest_left(matrix: &Matrix<u32>, largest: &mut u32) {
     let mut segment: u32;
 
     for x in 0..20 {
@@ -79,7 +79,7 @@ fn largest_left(matrix: &Matrix, largest: &mut u32) {
     }
 }
 
-fn largest_diagonal_forwards(matrix: &Matrix, largest: &mut u32) {
+fn largest_diagonal_forwards(matrix: &Matrix<u32>, largest: &mut u32) {
     let mut segment: u32;
 
     for x in 0..17 {
@@ -96,7 +96,7 @@ fn largest_diagonal_forwards(matrix: &Matrix, largest: &mut u32) {
     }
 }
 
-fn largest_diagonal_backwards(matrix: &Matrix, largest: &mut u32) {
+fn largest_diagonal_backwards(matrix: &Matrix<u32>, largest: &mut u32) {
     let mut segment: u32;
 
     for x in 0..17 {

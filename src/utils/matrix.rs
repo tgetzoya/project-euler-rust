@@ -1,16 +1,12 @@
-#[derive(Debug)]
-pub struct Matrix {
+#[derive(Debug, Clone)]
+pub struct Matrix<T> {
     col_len: usize,
     row_len: usize,
-    rows: Vec<Vec<i64>>,
+    rows: Vec<Vec<T>>,
 }
 
-impl Matrix {
-    pub fn new(row_len: usize, col_len: usize) -> Self {
-        Self {col_len, row_len, rows: vec![vec![0; col_len]; row_len] }
-    }
-
-    pub fn new_with_default_value(row_len: usize, col_len: usize, value: i64) -> Self {
+impl<T: std::clone::Clone> Matrix<T> {
+    pub fn new(row_len: usize, col_len: usize, value: T) -> Self {
         Self {col_len, row_len, rows: vec![vec![value; col_len]; row_len] }
     }
 
@@ -28,22 +24,22 @@ impl Matrix {
         (self.row_len, self.col_len)
     }
 
-    pub fn get_point(&self, x: usize, y: usize) -> i64 {
+    pub fn get_point(&self, x: usize, y: usize) -> &T {
         self.check_position(x, y);
-        return self.rows.get(x).unwrap()[y];
+        return &self.rows[x][y];
     }
 
-    pub fn set_point(&mut self, x: usize, y: usize, value: i64) {
+    pub fn set_point(&mut self, x: usize, y: usize, value: T) {
         self.check_position(x, y);
         self.rows.get_mut(x).unwrap()[y] = value;
     }
 
-    pub fn set_row(&mut self, x: usize, values: &[i64]) {
+    pub fn set_row(&mut self, x: usize, values: &[T]) {
         self.check_position(x, values.len());
 
         let row = self.rows.get_mut(x).unwrap();
         for (idx, val) in values.iter().enumerate() {
-            row[idx] = *val;
+            row[idx] = val.clone();
         }
     }
 }
