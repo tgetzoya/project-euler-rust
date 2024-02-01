@@ -1,3 +1,5 @@
+use rug::{Integer};
+
 pub fn gcd(mut a: u128, mut b: u128) -> u128 {
     while b != 0 {
         let temp = b;
@@ -20,4 +22,14 @@ pub fn lcm(a: u128, b: u128) -> u128 {
     }
 
     (a * b) / gcd(a, b)
+}
+
+pub fn factorial(num: u128) -> Integer {
+    let mut value: Integer = Integer::from(1);
+
+    for idx in 2..=num {
+        value = value * idx;
+    }
+
+    return value;
 }
