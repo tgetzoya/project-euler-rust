@@ -1,7 +1,9 @@
 use std::time::{Duration, Instant};
+use crate::enums::value::Value;
+
 use crate::utils::matrix::Matrix;
 
-pub fn problem11() -> (u128, Duration) {
+pub fn problem11() -> (Value, Duration) {
     let start = Instant::now();
 
     let mut value = u32::MIN;
@@ -15,7 +17,7 @@ pub fn problem11() -> (u128, Duration) {
 
 
     assert_eq!(value, 70600674);
-    return (value as u128, start.elapsed());
+    return (Value::U32(value), start.elapsed());
 }
 
 fn setup_matrix() -> Matrix<u32> {

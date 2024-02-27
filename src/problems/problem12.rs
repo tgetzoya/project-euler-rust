@@ -1,7 +1,9 @@
 use std::time::{Duration, Instant};
+
+use crate::enums::value::Value;
 use crate::utils;
 
-pub fn problem12() -> (u128, Duration) {
+pub fn problem12() -> (Value, Duration) {
     let start = Instant::now();
 
     let mut value = 76576500;
@@ -18,7 +20,7 @@ pub fn problem12() -> (u128, Duration) {
 
 
     assert_eq!(value, 76576500);
-    return (value as u128, start.elapsed());
+    return (Value::U32(value), start.elapsed());
 }
 
 fn calculate_triangle_number(num: u32) -> u32 {

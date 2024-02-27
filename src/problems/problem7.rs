@@ -1,9 +1,11 @@
 use std::time::{Duration, Instant};
 
-pub fn problem7() -> (u128, Duration) {
+use crate::enums::value::Value;
+
+pub fn problem7() -> (Value, Duration) {
     let start = Instant::now();
 
-    let mut value: u128 = 0;
+    let mut value: u32 = 0;
 
     /* 2 is a prime number, and it's already accounted for. */
     let mut step = 1;
@@ -17,12 +19,12 @@ pub fn problem7() -> (u128, Duration) {
             primes.push(idx);
 
             if step == 10_001 {
-                value = idx as u128;
+                value = idx;
                 break;
             }
         }
     }
 
     assert_eq!(value, 104743);
-    return (value, start.elapsed());
+    return (Value::U32(value), start.elapsed());
 }

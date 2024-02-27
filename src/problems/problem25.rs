@@ -1,8 +1,11 @@
 use std::time::{Duration, Instant};
+
 use rug::Integer;
 use rug::ops::Pow;
 
-pub fn problem25() -> (u128, Duration) {
+use crate::enums::value::Value;
+
+pub fn problem25() -> (Value, Duration) {
     let start = Instant::now();
     let mut value = 2;
 
@@ -16,5 +19,5 @@ pub fn problem25() -> (u128, Duration) {
     }
 
     assert_eq!(value, 4782);
-    return (value, start.elapsed());
+    return (Value::U32(value), start.elapsed());
 }

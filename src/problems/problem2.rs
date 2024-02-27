@@ -1,6 +1,8 @@
 use std::time::{Duration, Instant};
 
-pub fn problem2() -> (u128, Duration)  {
+use crate::enums::value::Value;
+
+pub fn problem2() -> (Value, Duration)  {
     let start = Instant::now();
     let mut x = 1;
     let mut y = 1;
@@ -16,5 +18,5 @@ pub fn problem2() -> (u128, Duration)  {
     }
 
     assert_eq!(sum, 4613732);
-    return (sum, start.elapsed());
+    return (Value::U32(sum), start.elapsed());
 }

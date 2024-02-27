@@ -1,8 +1,10 @@
 use std::collections::HashMap;
 use std::time::{Duration, Instant};
+
+use crate::enums::value::Value;
 use crate::utils::factors::get_factors;
 
-pub fn problem21() -> (u128, Duration) {
+pub fn problem21() -> (Value, Duration) {
     let start = Instant::now();
     let mut value: u128 = 0;
 
@@ -32,5 +34,5 @@ pub fn problem21() -> (u128, Duration) {
     }
 
     assert_eq!(value, 31626);
-    return (value, start.elapsed());
+    return (Value::U16(value as u16), start.elapsed());
 }

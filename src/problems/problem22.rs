@@ -1,7 +1,8 @@
 use std::fs;
 use std::time::{Duration, Instant};
+use crate::enums::value::Value;
 
-pub fn problem22() -> (u128, Duration) {
+pub fn problem22() -> (Value, Duration) {
     let start = Instant::now();
     let mut value: u32 = 0;
 
@@ -20,5 +21,5 @@ pub fn problem22() -> (u128, Duration) {
 
 
     assert_eq!(value, 871198282);
-    return (value as u128, start.elapsed());
+    return (Value::U32(value), start.elapsed());
 }

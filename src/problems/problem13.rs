@@ -1,7 +1,10 @@
 use std::time::{Duration, Instant};
-use rug::{Integer};
 
-pub fn problem13() -> (u128, Duration) {
+use rug::Integer;
+
+use crate::enums::value::Value;
+
+pub fn problem13() -> (Value, Duration) {
     let start = Instant::now();
 
     let numbers_as_string: &str = "37107287533902102798797998220837590246510135740250
@@ -108,8 +111,8 @@ pub fn problem13() -> (u128, Duration) {
     let mut sum: Integer = Integer::from(0);
     numbers_as_string.lines().for_each(|line| sum += line.parse::<Integer>().unwrap());
 
-    let value =  (&sum.to_string()[0..10]).to_string().parse::<u128>().unwrap();
+    let value =  (&sum.to_string()[0..10]).to_string().parse::<u64>().unwrap();
 
     assert_eq!(value, 5537376230);
-    return (value, start.elapsed());
+    return (Value::U64(value), start.elapsed());
 }

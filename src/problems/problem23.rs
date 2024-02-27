@@ -1,8 +1,9 @@
 use std::time::{Duration, Instant};
+use crate::enums::value::Value;
 
 use crate::utils::factors::get_factors;
 
-pub fn problem23() -> (u128, Duration) {
+pub fn problem23() -> (Value, Duration) {
     let start = Instant::now();
 
     let mut value = 0;
@@ -29,7 +30,7 @@ pub fn problem23() -> (u128, Duration) {
         .for_each(|(idx, _)| value += idx); // Add the index to value
 
     assert_eq!(value, 4179871);
-    return (value as u128, start.elapsed());
+    return (Value::U16(value as u16), start.elapsed());
 }
 
 fn get_all_abundant_numbers () -> Vec<u32> {

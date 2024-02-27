@@ -1,9 +1,10 @@
 use std::time::{Duration, Instant};
 use rug::Integer;
+use crate::enums::value::Value;
 
 use crate::utils::numbers;
 
-pub fn problem20() -> (u128, Duration) {
+pub fn problem20() -> (Value, Duration) {
     let start = Instant::now();
 
     let ten = Integer::from(10);
@@ -22,5 +23,5 @@ pub fn problem20() -> (u128, Duration) {
      */
 
     assert_eq!(value, 648);
-    return (value as u128, start.elapsed());
+    return (Value::U16(value as u16), start.elapsed());
 }

@@ -1,6 +1,7 @@
 use std::time::{Duration, Instant};
+use crate::enums::value::Value;
 
-pub fn problem18() -> (u128, Duration) {
+pub fn problem18() -> (Value, Duration) {
     let start = Instant::now();
 
     let mut triangle:Vec<Vec<u32>> = create_triangle();
@@ -16,7 +17,7 @@ pub fn problem18() -> (u128, Duration) {
     }
 
     assert_eq!(triangle[0][0], 1074);
-    return (triangle[0][0] as u128, start.elapsed());
+    return (Value::U16(triangle[0][0] as u16), start.elapsed());
 }
 
 fn create_triangle() -> Vec<Vec<u32>> {

@@ -1,12 +1,14 @@
 use std::time::{Duration, Instant};
 
-pub fn problem6() -> (u128, Duration) {
+use crate::enums::value::Value;
+
+pub fn problem6() -> (Value, Duration) {
     let start = Instant::now();
 
-    let value: u128 = (square_of_sum(100) - sum_of_squares(100)) as u128;
+    let value: u32 = square_of_sum(100) - sum_of_squares(100);
 
     assert_eq!(value, 25164150);
-    return (value, start.elapsed());
+    return (Value::U32(value), start.elapsed());
 }
 
 fn sum_of_squares(num: u32) -> u32 {

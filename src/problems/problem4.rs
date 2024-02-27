@@ -1,10 +1,12 @@
 use std::time::{Duration, Instant};
+
+use crate::enums::value::Value;
 use crate::utils;
 
-pub fn problem4() -> (u128, Duration) {
+pub fn problem4() -> (Value, Duration) {
     let start = Instant::now();
 
-    let mut value = u128::MIN;
+    let mut value = u32::MIN;
     let start_value = 999*999;
     let end_value = 100*100;
 
@@ -20,8 +22,8 @@ pub fn problem4() -> (u128, Duration) {
 
         for jdx in factors.iter() {
             for kdx in factors.iter() {
-                if jdx * kdx == idx as u128 {
-                    value = idx;
+                if jdx * kdx == idx {
+                    value = idx as u32;
                     break 'main_loop;
                 }
             }
@@ -29,5 +31,5 @@ pub fn problem4() -> (u128, Duration) {
     }
 
     assert_eq!(value, 906609);
-    return (value, start.elapsed());
+    return (Value::U32(value), start.elapsed());
 }

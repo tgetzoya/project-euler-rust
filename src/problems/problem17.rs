@@ -1,5 +1,6 @@
 use std::ops::{Add, Rem};
 use std::time::{Duration, Instant};
+use crate::enums::value::Value;
 
 const ONES: [&str; 20] = [
     "zero",
@@ -44,7 +45,7 @@ const ORDERS: [&str; 6] = [
     "quintillion",
 ];
 
-pub fn problem17() -> (u128, Duration) {
+pub fn problem17() -> (Value, Duration) {
     let start = Instant::now();
     let mut value= 0;
 
@@ -53,7 +54,7 @@ pub fn problem17() -> (u128, Duration) {
     }
 
     assert_eq!(value, 21124);
-    return (value as u128, start.elapsed());
+    return (Value::U16(value as u16), start.elapsed());
 }
 
 fn number_to_word(num: u64, order: i8) -> String {
