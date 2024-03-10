@@ -33,3 +33,17 @@ pub fn factorial(num: u128) -> Integer {
 
     return value;
 }
+
+pub fn to_digits(num: u32) -> Vec<u8> {
+    let mut val: u32 = num.clone();
+    let mut digits: Vec<u8> = Vec::new();
+
+    while val >= 10 {
+        digits.push((val % 10) as u8);
+        val /= 10;
+    }
+
+    digits.push(val as u8);
+
+    digits
+}

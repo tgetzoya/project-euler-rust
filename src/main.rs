@@ -93,5 +93,11 @@ fn main() {
     result = problems::problem28::problem28();
     println!("Problem 028: {}, {:?}", result.0, result.1);
 
+    result = problems::problem29::problem29();
+    println!("Problem 029: {}, {:?}", result.0, result.1);
+
+    result = problems::problem30::problem30();
+    println!("Problem 030: {}, {:?}", result.0, result.1);
+
     println!("Total run time: {:?}", start.elapsed());
 }
